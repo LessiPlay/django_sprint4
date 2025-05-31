@@ -6,7 +6,8 @@ app_name = 'blog'
 urlpatterns = [
     path('', views.BaseListView.as_view(), name='index'),
     path('posts/create/', views.PostCreateView.as_view(), name='create_post'),
-    path('posts/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
+    path('posts/<int:pk>/',
+         views.PostDetailView.as_view(), name='post_detail'),
     path('posts/<int:pk>/edit/', 
          views.PostUpdateView.as_view(), name='edit_post'),
     path('posts/<int:pk>/delete/',
@@ -28,6 +29,3 @@ urlpatterns = [
         'profile/<slug:username>/edit_profile/',
         views.ProfileUpdateView.as_view(), name='edit_profile',),
 ]
-
-
-

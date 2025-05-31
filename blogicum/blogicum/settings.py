@@ -141,11 +141,11 @@ EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = "blog:index"
+LOGIN_REDIRECT_URL = 'blog:index'
 
-LOGIN_URL = "login"
+LOGIN_URL = 'login'
 
-CSRF_FAILURE_VIEW = "pages.views.csrf_failure"
+CSRF_FAILURE_VIEW = 'pages.views.csrf_failure'
 
 POST_LIMIT = 10
 LIST_LIMIT = 20

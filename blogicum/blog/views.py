@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from .models import Category, Post, User
 from django.views.generic import ListView
 from django.db.models import Count
@@ -61,7 +61,8 @@ class ProfilePage(BaseListView):
     author = None
     
     def get_queryset(self):
-        self.author = get_object_or_404(User, username=self.kwargs.get('username'))
+        self.author = get_object_or_404(User,
+                                        username=self.kwargs.get('username'))
         if self.author == self.request.user:
             return get_all_posts().filter(author=self.author)
         return super().get_queryset().filter(author=self.author)

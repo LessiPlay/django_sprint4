@@ -22,7 +22,7 @@ urlpatterns = [
         views.CommentDeleteView.as_view(), name='delete_comment'),
     path('category/<slug:category_slug>/',
          views.CategoryPostsListView.as_view(), name='category_posts'),
-    path('profile/<slug:username>',
+    path('profile/<slug:username>/',
          views.ProfilePage.as_view(), name='profile'),
     path(
         'profile/<slug:username>/edit_profile/',

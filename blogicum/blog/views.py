@@ -59,14 +59,14 @@ class BaseListView(ListView):
 class ProfilePage(BaseListView):
     template_name = 'blog/profile.html'
     author = None
-    
+
     def get_queryset(self):
         self.author = get_object_or_404(User,
                                         username=self.kwargs.get('username'))
         if self.author == self.request.user:
             return get_all_posts().filter(author=self.author)
         return super().get_queryset().filter(author=self.author)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['profile'] = self.author
